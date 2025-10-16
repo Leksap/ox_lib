@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
   container: {
     width: 300,
     height: 'fit-content',
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: theme.colors.dark[8],
     color: theme.colors.dark[0],
     padding: 12,
     borderRadius: theme.radius.sm,
@@ -53,7 +53,7 @@ const getAnimation = (visible: boolean, position: string) => {
   let animation: { from: string; to: string };
 
   if (visible) {
-    animation = position.includes('bottom') ? { from: 'Y(30px)', to: 'Y(0px)' } : { from: 'Y(-30px)', to:'Y(0px)' };
+    animation = position.includes('bottom') ? { from: 'Y(30px)', to: 'Y(0px)' } : { from: 'Y(-30px)', to: 'Y(0px)' };
   } else {
     if (position.includes('right')) {
       animation = { from: 'X(0px)', to: 'X(100%)' }
@@ -126,7 +126,7 @@ const Notifications: React.FC = () => {
           iconColor = 'red.6';
           break;
         case 'success':
-          iconColor = 'teal.6';
+          iconColor = 'lime.6';
           break;
         case 'warning':
           iconColor = 'yellow.6';

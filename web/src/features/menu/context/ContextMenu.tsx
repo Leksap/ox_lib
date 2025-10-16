@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
   titleContainer: {
     borderRadius: 4,
     flex: '1 85%',
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: theme.colors.dark[9],
   },
   titleText: {
     color: theme.colors.dark[0],

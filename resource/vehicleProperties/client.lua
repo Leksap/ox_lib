@@ -404,19 +404,19 @@ function lib.setVehicleProperties(vehicle, props, fixVehicle)
 
     if props.windows then
         for i = 1, #props.windows do
-            RemoveVehicleWindow(vehicle, props.windows[i])
+            --RemoveVehicleWindow(vehicle, props.windows[i])
         end
     end
 
     if props.doors then
         for i = 1, #props.doors do
-            SetVehicleDoorBroken(vehicle, props.doors[i], true)
+            --SetVehicleDoorBroken(vehicle, props.doors[i], true)
         end
     end
 
     if props.tyres then
         for tyre, state in pairs(props.tyres) do
-            SetVehicleTyreBurst(vehicle, tonumber(tyre) --[[@as number]], state == 2, 1000.0)
+            --SetVehicleTyreBurst(vehicle, tonumber(tyre) --[[@as number]], state == 2, 1000.0)
         end
     end
 

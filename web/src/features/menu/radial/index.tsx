@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
     transform: 'translate(-50%, -50%)',
   },
   sector: {
-    fill: theme.colors.dark[6],
+    fill: theme.colors.dark[8],
     color: theme.colors.dark[0],
 
     '&:hover': {
@@ -33,12 +33,12 @@ const useStyles = createStyles((theme) => ({
     },
   },
   backgroundCircle: {
-    fill: theme.colors.dark[6],
+    fill: theme.colors.dark[8],
   },
   centerCircle: {
     fill: theme.fn.primaryColor(),
     color: '#fff',
-    stroke: theme.colors.dark[6],
+    stroke: theme.colors.dark[8],
     strokeWidth: 4,
     '&:hover': {
       cursor: 'pointer',
@@ -182,9 +182,8 @@ const RadialMenu: React.FC = () => {
                   }}
                 >
                   <path
-                    d={`M175.01,175.01 l${175 - gap},0 A175.01,175.01 0 0,0 ${
-                      175 + (175 - gap) * Math.cos(-degToRad(pieAngle))
-                    }, ${175 + (175 - gap) * Math.sin(-degToRad(pieAngle))} z`}
+                    d={`M175.01,175.01 l${175 - gap},0 A175.01,175.01 0 0,0 ${175 + (175 - gap) * Math.cos(-degToRad(pieAngle))
+                      }, ${175 + (175 - gap) * Math.sin(-degToRad(pieAngle))} z`}
                   />
                   <g transform={`rotate(${index * pieAngle - 90} ${iconX} ${iconY})`} pointerEvents="none">
                     {typeof item.icon === 'string' && isIconUrl(item.icon) ? (

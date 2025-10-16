@@ -18,6 +18,10 @@ const useStyles = createStyles((theme, params: { canClose?: boolean }) => ({
     textAlign: 'center',
     justifyContent: 'center',
     padding: 2,
+    backgroundColor: theme.colors.dark[8],
+    '&:hover': {
+      backgroundColor: theme.colors.dark[7],
+    },
   },
   root: {
     border: 'none',

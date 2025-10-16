@@ -15,7 +15,7 @@ interface Props {
 
 const useStyles = createStyles((theme, params: { iconColor?: string }) => ({
   buttonContainer: {
-    backgroundColor: theme.colors.dark[6],
+    backgroundColor: theme.colors.dark[8],
     borderRadius: theme.radius.md,
     padding: 2,
     height: 60,
@@ -104,7 +104,7 @@ const ListItem = forwardRef<Array<HTMLDivElement | null>, Props>(({ item, index,
               <Text>
                 {typeof item.values[scrollIndex] === 'object'
                   ? // @ts-ignore for some reason even checking the type TS still thinks it's a string
-                    item.values[scrollIndex].label
+                  item.values[scrollIndex].label
                   : item.values[scrollIndex]}
               </Text>
             </Stack>
