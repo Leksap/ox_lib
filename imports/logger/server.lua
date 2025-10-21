@@ -1,11 +1,3 @@
---[[
-    https://github.com/overextended/ox_lib
-
-    This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
-
-    Copyright © 2025 Linden <https://github.com/thelindat>
-]]
-
 local service = GetConvar('ox:logger', 'datadog')
 local buffer
 local bufferSize = 0
@@ -94,7 +86,6 @@ end
 
 if service == 'fivemanage' then
     local key = GetConvar('fivemanage:key', '')
-    local dataset = GetConvar('fivemanage:dataset', '')
 
     if key ~= '' then
         local endpoint = 'https://api.fivemanage.com/api/logs/batch'
@@ -102,12 +93,8 @@ if service == 'fivemanage' then
         local headers = {
             ['Content-Type'] = 'application/json',
             ['Authorization'] = key,
-            ['User-Agent'] = 'ox_lib',
+            ['User-Agent'] = 'ox_lib'
         }
-
-        if dataset ~= "" then
-            headers['X-Fivemanage-Dataset'] = dataset
-        end
 
         function lib.logger(source, event, message, ...)
             if not buffer then
