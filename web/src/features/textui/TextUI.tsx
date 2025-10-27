@@ -31,6 +31,21 @@ const useStyles = createStyles((theme, params: { position?: TextUiPosition }) =>
     borderRadius: theme.radius.sm,
     boxShadow: theme.shadows.sm,
   },
+  keybind: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 32,
+    height: 32,
+    padding: '0 8px',
+    backgroundColor: theme.colors.dark[6],
+    border: `2px solid ${theme.colors.dark[4]}`,
+    borderRadius: theme.radius.sm,
+    fontSize: 14,
+    fontWeight: 600,
+    color: theme.colors.dark[0],
+    fontFamily: 'Roboto',
+  },
 }));
 
 const TextUI: React.FC = () => {
@@ -40,6 +55,11 @@ const TextUI: React.FC = () => {
   });
   const [visible, setVisible] = React.useState(false);
   const { classes } = useStyles({ position: data.position });
+
+  const keybindMatch = data.text.match(/^\[([^\]]+)\]\s*-?\s*/);
+  const keybind = keybindMatch ? keybindMatch[1] : null;
+  const displayText = keybind ? data.text.replace(/^\[([^\]]+)\]\s*-?\s*/, '') : data.text;
+  const shouldShowIcon = data.icon && !keybind;
 
   useNuiEvent<TextUiProps>('textUi', (data) => {
     if (!data.position) data.position = 'right-center'; // Default right position
@@ -55,9 +75,14 @@ const TextUI: React.FC = () => {
         <ScaleFade visible={visible}>
           <Box style={data.style} className={classes.container}>
             <Group spacing={12}>
-              {data.icon && (
+              {keybind && (
+                <Box className={classes.keybind}>
+                  {keybind}
+                </Box>
+              )}
+              {shouldShowIcon && (
                 <LibIcon
-                  icon={data.icon}
+                  icon={data.icon!}
                   fixedWidth
                   size="lg"
                   animation={data.iconAnimation}
@@ -68,7 +93,7 @@ const TextUI: React.FC = () => {
                 />
               )}
               <ReactMarkdown components={MarkdownComponents} remarkPlugins={[remarkGfm]}>
-                {data.text}
+                {displayText}
               </ReactMarkdown>
             </Group>
           </Box>
