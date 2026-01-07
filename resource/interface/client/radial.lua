@@ -305,9 +305,9 @@ function lib.disableRadial(state)
 end
 
 lib.addKeybind({
-    name = 'ox_lib-radial',
+    name = 'ox_lib-radial-g',
     description = locale('open_radial_menu'),
-    defaultKey = 'z',
+    defaultKey = 'g',
     onPressed = function()
         if isDisabled then return end
 
