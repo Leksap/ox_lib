@@ -1,3 +1,11 @@
+--[[
+    https://github.com/overextended/ox_lib
+
+    This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
+
+    Copyright © 2025 Linden <https://github.com/thelindat>
+]]
+
 ---@class RadialItem
 ---@field icon string | {[1]: IconProp, [2]: string};
 ---@field label string
@@ -297,9 +305,9 @@ function lib.disableRadial(state)
 end
 
 lib.addKeybind({
-    name = 'ox_lib-unity',
+    name = 'ox_lib-radial',
     description = locale('open_radial_menu'),
-    defaultKey = 'g',
+    defaultKey = 'z',
     onPressed = function()
         if isDisabled then return end
 
